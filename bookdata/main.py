@@ -10,6 +10,18 @@ def summary(search_term: str) -> dict:
     return b.summary()
 
 if __name__ == "__main__":
-    # Nicely render the JSON
+    # Nicely render the dict
     pp = pprint.PrettyPrinter(indent=2)
     pp.pprint(summary(input("Book? ")))
+
+# if you would like to have the option to export the summary as a JSON, uncomment the following code:
+#
+# def summary(search_term: str, fpath: str) -> dict:
+#     """Get book information and export"""
+#     b = BookData(search(search_term))
+#     summary = b.summary(filepath=fpath)
+#     return summary
+# if __name__ == "__main__":
+#     Nicely render the dict
+#     pp = pprint.PrettyPrinter(indent=2)
+#     pp.pprint(summary(input("Book? "), input("Filepath? ")))
