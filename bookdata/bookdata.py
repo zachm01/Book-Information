@@ -5,15 +5,14 @@ Since the Goodreads API is soon to be deprecated and no longer offers API keys,
 this script uses web scraping
 
 What we need to scrape:
- -- avg. rating √
- -- author √
- -- synopsis (prettify) √
- -- year of publication √
- -- genre √
- -- place in series: TODO
- -- page count √
- -- cover image √
-...then package it all in a nice JSON or something √
+ -- avg. rating
+ -- author
+ -- synopsis (prettify)
+ -- year of publication
+ -- genre
+ -- page count
+ -- cover image
+and then package it into a JSON file
 """
 
 import json
