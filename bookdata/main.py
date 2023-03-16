@@ -15,4 +15,4 @@ def summary(search_term: str, fpath="") -> dict:
 if __name__ == "__main__":
     # Nicely render the dict
     pp = pprint.PrettyPrinter(indent=2)
-    pp.pprint(summary(input("Book? "), input("Export filepath? (Leave blank if none)")))
+    pp.pprint(summary(input("Book? "), input("Export filepath? (Leave blank if none) ")))
