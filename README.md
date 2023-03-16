@@ -1,6 +1,9 @@
 # Book-Information
 Automatically download information on any book with only a title as input. 
 
+# Doesn't Goodreads have an API?
+Technically, they do. However, they no longer issue API keys and the current version of the tool is soon to be deprecated, hopefully to be replaced, but no promises have been made. Until they do that, the only thing I could think of was webscraping. This is the first main project in which I have used webscraping so this is mainly an exercise in programming for myself.
+
 # How to use
 Run `main.py` at the command line, i.e. with `python3 bookdata/main.py`. Enter your intended book's title as you would in a search engine. A collection of data about the book will be scraped from GoodReads. Unfortunately, sometimes the `author` (and sometimes others) is not able to be fetched. This is to be fixed.
 
