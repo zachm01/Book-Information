@@ -1,5 +1,5 @@
 # Book-Information
-Automatically download information on any book with only a title as input. 
+Automatically download information on any book from Goodreads with only a title as input. 
 
 # Doesn't Goodreads have an API?
 Technically, they do. However, they no longer issue API keys and the current version of the tool is soon to be deprecated, hopefully to be replaced, but no promises have been made. Until they do that, the only thing I could think of was webscraping. This is the first main project in which I have used webscraping so this is mainly an exercise in programming for myself.
