@@ -8,9 +8,9 @@ def summary(search_term: str, fpath="") -> dict:
     """Get information about a book"""
     b = BookData(search(search_term))
     if fpath:
-        return b.summary()
-    else:
         return b.summary(filepath=fpath)
+    else:
+        return b.summary()
 
 if __name__ == "__main__":
     # Nicely render the dict
