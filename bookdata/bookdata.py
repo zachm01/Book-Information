@@ -10,9 +10,10 @@ What we need to scrape:
  -- synopsis (prettify) √
  -- year of publication √
  -- genre √
+ -- place in series: TODO
  -- page count √
  -- cover image √
-then package in a JSON
+...then package it all in a nice JSON or something √
 """
 
 import json
@@ -62,10 +63,7 @@ class BookData():
         """Get the title of a book"""
         try:
             title = str(self.soup.find_all("h1", class_="Text Text__title1"))
-            
-            # This tag comes from inspecting the HTML of a GoodReads page
             tag = "data-testid=\"bookTitle\">"
-           
             return title[title.index(tag)+len(tag):title.index("</h1>")].replace("&amp;", "&")
         except Exception:
             print("Could not fetch book title")
@@ -74,7 +72,6 @@ class BookData():
     def get_rating(self):
         """Get the rating of a book"""
         try:
-            # From GoodReads HTML
             rating = str(self.soup.find_all("div", class_="RatingStatistics__rating"))
             return float(rating[rating.index('">')+2:rating.index("</div>")])
         except Exception:
@@ -84,7 +81,6 @@ class BookData():
     def get_author(self):
         """Get the author of a book"""
         try:
-            # From GoodReads HTML
             author = str(self.soup.find_all("h3", class_="Text Text__title3 Text__regular"))
             return author[author.index("By: ")+4:author.index("class")-2].replace("&amp;", "&")
         except Exception:
@@ -94,7 +90,6 @@ class BookData():
     def get_synopsis(self):
         """Get a summary of a book"""
         try:
-            # From GoodReads HTML
             summary = str(self.soup.find_all("div",
                                         class_="DetailsLayoutRightParagraph__widthConstrained"))
             summary = summary[summary.index("Formatted\">")+11:summary.index("</span></div>")]
@@ -110,7 +105,6 @@ class BookData():
     def get_genres(self):
         """Get the genres of a book"""
         try:
-            # From GoodReads HTML
             genres = [str(i) for i in self.soup.find_all("span",
                                                     class_="BookPageMetadataSection__genreButton")]
             for i, genre in enumerate(genres):
@@ -124,7 +118,6 @@ class BookData():
     def get_year(self):
         """Get the publication info of a book"""
         try:
-            # From GoodReads HTML
             info = str(self.soup.find_all("div", class_="FeaturedDetails"))
             return info[info.index("First"):info.index("</p></div>")][-4:]
         except Exception:
@@ -134,7 +127,6 @@ class BookData():
     def get_page_ct(self):
         """Get the page count of a book"""
         try:
-            # From GoodReads HTML
             info = str(self.soup.find_all("div", class_="FeaturedDetails"))
             id_str = "pagesFormat\">"
             return int(info[info.index(id_str)+len(id_str):info.index("pages, ")-1])
@@ -145,7 +137,6 @@ class BookData():
     def get_image(self):
         """Get URL of an image of the cover of a book"""
         try:
-            # From GoodReads HTML
             url = str(self.soup.find_all("img", class_="ResponsiveImage"))
             return url[url.index("src=\"htt")+5:url.index("\"/>]")]
         except Exception:
@@ -195,6 +186,6 @@ class BookData():
                     filepath += ".json"
                 with open(filepath, 'w', encoding='utf-8') as f:
                     json.dump(information, f)
-            except Exception as exc:
-                raise OSError("Issue writing to JSON file") from exc
+            except OSError:
+                print("Failed to write to JSON file")
         return information
