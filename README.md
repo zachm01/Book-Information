@@ -38,3 +38,5 @@ Run `main.py` at the command line, i.e. with `python3 bookdata/main.py`. Enter y
               'American violence.',
   'title': 'In Cold Blood'}
 ```
+
+The output is saved in `icb.json` in the directory
