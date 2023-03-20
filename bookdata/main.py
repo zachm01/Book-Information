@@ -2,6 +2,7 @@
 
 import pprint
 from title_to_url import search
+import pyperclip
 from bookdata import BookData
 
 def summary(search_term: str, fpath="") -> dict:
@@ -9,10 +10,16 @@ def summary(search_term: str, fpath="") -> dict:
     b = BookData(search(search_term))
     if fpath:
         return b.summary(filepath=fpath)
-    else:
-        return b.summary()
+    return b.summary()
 
 if __name__ == "__main__":
-    # Nicely render the dict
     pp = pprint.PrettyPrinter(indent=2)
-    pp.pprint(summary(input("Book? "), input("Export filepath? (Leave blank if none) ")))
+    total_data = ""
+    num_books = int(input("How many books would you like? "))
+    for i in range(num_books):
+        info = summary(input("Book? "), input("Export filepath? (Leave blank if none) "))
+        pp.pprint(info)
+        total_data += str(info) + ", "
+    copy = input("Copy to clipboard? ")
+    if copy.lower() == "yes":
+        pyperclip.copy(str(total_data)[:-2])
