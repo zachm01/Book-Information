@@ -7,7 +7,7 @@ Technically, they do. However, they no longer issue API keys and the current ver
 # How to use
 Run `main.py` at the command line, i.e. with `python3 bookdata/main.py`. Enter your intended book's title as you would in a search engine. A collection of data about the book will be scraped from GoodReads. Unfortunately, sometimes the `author` (and sometimes others) is not able to be fetched. This is to be fixed.
 
-# Wait why is there JavaScript in this repo? I thought you said you were using Python!
+# Wait why do I see Javascript here? I thought you said you were using Python!!1!1!
 In the bookdata/bookdata/test directory is a Google Apps Script file (`book_data_slides.gs`) that I wrote that I use to apply the functionality of the Python script. This file creates a slides presentation from the data the Python script scraped. 
 
 # Example
