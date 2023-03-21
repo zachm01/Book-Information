@@ -29,8 +29,8 @@ function presentData(jsonString) {
   var presentation = SlidesApp.getActivePresentation();
   slide = presentation.appendSlide();
 
-  // Add background image;
-  // Easiest way I could figure out to host an image was through GitHub
+  // Add background image
+  // This image is present in the `data` folder of this repo
   addImage("https://raw.githubusercontent.com/zachm01/Book-Information/main/bookdata/data/ppt_bg.png", 0, 0, slideWidth, slideHeight);
 
   var id = slide.insertTextBox("z");
