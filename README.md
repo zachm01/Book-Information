@@ -14,8 +14,8 @@ In the bookdata/bookdata/test directory is a Google Apps Script file (`book_data
 <i>In terminal</i><br>
 `python3 bookdata/main.py`
 ```
->>> Book? in cold blood
->>> Export filepath? (Leave blank if none) icb.json
+users-macbook-pro:~ user$ Book? in cold blood
+users-macbook-pro:~ user$ Export filepath? (Leave blank if none) icb.json
 
 { 'author': 'Truman Capote',
   'cover': 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1424931136i/168642.jpg',
