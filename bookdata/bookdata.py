@@ -2,17 +2,19 @@
 Retrieve data and statistics about books from Goodreads using web scraping.
 
 Since the Goodreads API is soon to be deprecated and no longer offers API keys,
-this script uses web scraping
+this module uses web scraping
 
-What we need to scrape:
- -- avg. rating
+The following attributes need to be scraped from the website:
+ -- title
  -- author
- -- synopsis (prettify)
+ -- average rating (out of 5)
+ -- synopsis
  -- year of publication
- -- genre
+ -- genre/genres
  -- page count
- -- cover image
-and then package it into a JSON file
+ -- url to cover image
+
+then package the data in a JSON file
 """
 
 import json
