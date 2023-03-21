@@ -108,10 +108,10 @@ function addSideText(identifier, key, pos) {
  * @param {int} w - width of the image
  * @param {int} h - height of the image
  */
-function addImage(url_, top, left, w, h) {
+function addImage(theUrl, top, left, w, h) {
   // Adds an image from a url
   // For book covers, left ≈ 450, top ≈ 50
-  const url = url_;
+  const url = theUrl;
   var image = slide.insertImage(url);
   image.setTop(top);
   image.setLeft(left);
