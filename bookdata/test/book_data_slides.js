@@ -123,5 +123,3 @@ function addImage(theUrl, top, left, w, h) {
   image.setWidth(w);
   image.setHeight(h);
 }
-
-
