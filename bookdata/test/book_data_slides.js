@@ -4,6 +4,7 @@
  * PLEASE NOTE:
  *  This is a GOOGLE APPS SCRIPT file
  *  Not intended to be run in an IDE like VSCode
+ *  Original file extension is `.gs`, changed to `.js` for readability in IDE
  */
 
 var slide;
