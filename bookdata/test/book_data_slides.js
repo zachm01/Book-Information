@@ -2,7 +2,7 @@
  * Add book data from JSON strings to a slides presentation
  * 
  * PLEASE NOTE:
- *  This is a GOOGLE APPS SCRIPT file
+ *  This is a GOOGLE APPS SCRIPT file (`.gs`)
  *  Not intended to be run in an IDE like VSCode
  *  Original file extension is `.gs`, changed to `.js` for readability in IDE
  */
