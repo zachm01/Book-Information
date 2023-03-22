@@ -43,6 +43,7 @@ class BookData():
                    excluding download_cover() - user can choose to export to a
                    .JSON file or not
     """
+
     def __init__(self, book_url: str):
         self.url = book_url
         try:
