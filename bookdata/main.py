@@ -1,4 +1,11 @@
-"""Get book data"""
+"""
+Main file. Downloads the book data.
+
+Functionality:
+ -- Fetch the book data
+ -- Prints it out nicely with PrettyPrinter
+ -- Copies the data to the clipboard
+"""
 
 import pprint
 from title_to_url import search
@@ -8,6 +15,7 @@ from bookdata import BookData
 def summary(search_term: str, fpath="") -> dict:
     """Get information about a book"""
     b = BookData(search(search_term))
+    # Check if the user has specified a file path
     if fpath:
         return b.summary(filepath=fpath)
     return b.summary()
