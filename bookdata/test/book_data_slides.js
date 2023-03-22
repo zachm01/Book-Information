@@ -1,5 +1,9 @@
 /**
  * Add book data from JSON strings to a slides presentation
+ * 
+ * PLEASE NOTE:
+ *  This is a GOOGLE APPS SCRIPT file
+ *  Not intended to be run in an IDE like VSCode
  */
 
 var slide;
