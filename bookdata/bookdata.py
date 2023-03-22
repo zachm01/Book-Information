@@ -170,7 +170,7 @@ class BookData():
 
     def summary(self, filepath=""):
         """
-        Get all of the information needed about a book
+        Fetch all the data about the book
         
         Keyword arguments:
         filepath: string -- filepath to export to (.json)
