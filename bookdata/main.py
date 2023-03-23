@@ -14,11 +14,11 @@ from bookdata import BookData
 
 def summary(search_term: str, fpath="") -> dict:
     """Get information about a book"""
-    b = BookData(search(search_term))
+    book = BookData(search(search_term))
     # Check if the user has specified a file path
     if fpath:
-        return b.summary(filepath=fpath)
-    return b.summary()
+        return book.summary(filepath=fpath)
+    return book.summary()
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=2)
