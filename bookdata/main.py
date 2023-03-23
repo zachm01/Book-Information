@@ -22,12 +22,17 @@ def summary(search_term: str, fpath="") -> dict:
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=2)
-    total_data = ""
+    total_data = []
     num_books = int(input("How many books would you like? "))
     for i in range(num_books):
         info = summary(input("Book? "), input("Export filepath? (Leave blank if none) "))
         pp.pprint(info)
-        total_data += str(info) + ", "
+        total_data.append(info)
+
     copy = input("Copy to clipboard? ")
+
     if copy.lower() == "yes":
-        pyperclip.copy(str(total_data)[:-2])
+        for i, data in enumerate(total_data):
+            total_data[i] = str(data).replace("'", "\"")
+        print(total_data)
+        pyperclip.copy(str(total_data))
