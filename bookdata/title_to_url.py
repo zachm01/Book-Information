@@ -20,7 +20,7 @@ def search(title: str):
     title.replace(' ', '+')
 
     # Scrapes search results from GoodReads
-    data = requests.get(f"https://goodreads.com/search?utf8=✓&query={title}")
+    data = requests.get(f"https://goodreads.com/search?utf8=✓&query={title}", timeout=15)
 
     soup = BeautifulSoup(data.content, "html.parser")
     # From GoodReads HTML
