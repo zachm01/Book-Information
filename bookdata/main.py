@@ -24,6 +24,7 @@ if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=2)
     total_data = []
     num_books = int(input("How many books would you like? "))
+
     for i in range(num_books):
         info = summary(input("Book? "), input("Export filepath? (Leave blank if none) "))
         pp.pprint(info)
@@ -34,5 +35,8 @@ if __name__ == "__main__":
     if copy.lower() == "yes":
         for i, data in enumerate(total_data):
             total_data[i] = str(data).replace("'", "\"")
+
+            # An error can occur with apostrophes; janky fix˝
+            total_data[i] = total_data[i].replace("\"s", "\'s")
         print(total_data)
-        pyperclip.copy(str(total_data))
+        pyperclip.copy(str(total_data)) # copy data
