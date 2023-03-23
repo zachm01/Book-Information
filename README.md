@@ -10,6 +10,9 @@ Run `main.py` at the command line, i.e. with `python3 bookdata/main.py`. Enter y
 # Wait why do I see Javascript here? I thought you said you were using Python!!1!1!
 In the bookdata/bookdata/test directory is a Google Apps Script file (`book_data_slides.gs`) that I wrote that I use to apply the functionality of the Python script. This file creates a slides presentation from the data the Python script scraped. 
 
+<h1>A Warning!</h1>
+This script does not always work. It can be quite buggy and unreliable due to (I think) the nature of webscraping so proceed with caution and please do not use this in any high-stakes context.
+
 # Example
 <i>In terminal</i><br>
 `python3 bookdata/main.py`
