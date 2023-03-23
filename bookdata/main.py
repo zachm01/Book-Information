@@ -38,5 +38,6 @@ if __name__ == "__main__":
 
             # An error can occur with apostrophes; janky fix˝
             total_data[i] = total_data[i].replace("\"s", "\'s")
+
         print(total_data)
         pyperclip.copy(str(total_data)) # copy data
