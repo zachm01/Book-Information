@@ -32,10 +32,10 @@ def search(title: str):
     book_id = re.search('id="[0-9]*"', res).group(0)
 
     # From GoodReads HTML
-    ix = str(soup).index(str(soup.find_all("div", id=book_id[4:-1])[0]))
+    index = str(soup).index(str(soup.find_all("div", id=book_id[4:-1])[0]))
 
     # this shit super jank
-    html = str(soup)[ix:ix+1000]
+    html = str(soup)[index:index+1000]
 
     # get the first result
     link = html[html.index("/book/show/"):html.index("rank=1\"") + len("rank=1")]
