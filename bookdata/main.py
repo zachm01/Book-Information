@@ -15,6 +15,7 @@ from bookdata import BookData
 def summary(search_term: str, fpath="") -> dict:
     """Get information about a book"""
     book = BookData(search(search_term))
+
     # Check if the user has specified a file path
     if fpath:
         return book.summary(filepath=fpath)
@@ -41,3 +42,5 @@ if __name__ == "__main__":
 
         print(total_data)
         pyperclip.copy(str(total_data)) # copy data
+
+        print("Copied to clipboard!")
