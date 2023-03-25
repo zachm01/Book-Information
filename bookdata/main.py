@@ -4,7 +4,7 @@ Main file. Downloads the book data.
 Functionality:
  -- Fetch the book data
  -- Prints it out nicely with PrettyPrinter
- -- Copies the data to the clipboard
+ -- Copy the data to the clipboard
 """
 
 import pprint
