@@ -23,6 +23,7 @@ def summary(search_term: str, fpath="") -> dict:
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=2)
+
     total_data = []
     num_books = int(input("How many books would you like? "))
 
