@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     if copy.lower() == "yes":
         for i, data in enumerate(total_data):
-            total_data[i] = str(data).replace("'", "\"")
+            total_data[i] = str(data).replace("'", "\'")
 
             # An error can occur with apostrophes; janky fix˝
             total_data[i] = total_data[i].replace("\"s", "\'s")
