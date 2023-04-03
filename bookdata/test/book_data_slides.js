@@ -31,40 +31,39 @@ function myFunction() {
  * @param {string} jsonString - string containing the JSON data from the Python script 
  */
 function presentData(jsonString) {
-  var presentation = SlidesApp.getActivePresentation();
-  slide = presentation.appendSlide();
+    var presentation = SlidesApp.getActivePresentation();
+    slide = presentation.appendSlide();
 
-  // Add background image
-  // This image is present in the `data` folder of this repo
-  addImage("https://raw.githubusercontent.com/zachm01/Book-Information/main/bookdata/data/ppt_bg.png", 0, 0, slideWidth, slideHeight);
+    // Add background image
+    // This image is present in the `data` folder of this repo
+    addImage("https://raw.githubusercontent.com/zachm01/Book-Information/main/bookdata/data/ppt_bg.png", 0, 0, slideWidth, slideHeight);
 
-  var id = slide.insertTextBox("z");
-  id.setTop(-7);
-  id.setLeft(700);
+    var id = slide.insertTextBox("z");
+    id.setTop(-7);
+    id.setLeft(700);
 
-  // Add information
-  json = JSON.parse(jsonString);
-  var keys = [];
-  for(var key in json) { keys.push(key); }
+    // Add information
+    json = JSON.parse(jsonString);
+    var keys = [];
+    for(var key in json) { keys.push(key); }
 
-  let title = json["title"] + " by " + json["author"];
+    let title = json["title"] + " by " + json["author"];
 
-  // Title and synopsis
-  addText(title, "Libre Baskerville", 20, 1000, 21, 25);
-  addText(json["synopsis"], "Libre Baskerville", 12, 290, 60, 25);
+    // Title and synopsis
+    addText(title, "Libre Baskerville", 20, 1000, 21, 25);
+    addText(json["synopsis"], "Libre Baskerville", 12, 290, 60, 25);
 
-  // Side text
+    // Side text
 
-  var identifiers = ["Genre", "Avg. Rating", "[place in series]", "[age suggestion]", "Published", "PC"];
-  var keys = ["genres", "rating", "", "", "published in", "page count"];
+    var identifiers = ["Genre", "Avg. Rating", "[place in series]", "[age suggestion]", "Published", "PC"];
+    var keys = ["genres", "rating", "", "", "published in", "page count"];
 
-  for(let i = 0; i < identifiers.length; i++) {
-    addSideText(identifiers[i], keys[i], i);
+    for(let i = 0; i < identifiers.length; i++) {
+        addSideText(identifiers[i], keys[i], i);
+    }
 
-  }
-  
-  // Cover image
-  addImage(json["cover"], 67, 480, 200, 300);
+    // Cover image
+    addImage(json["cover"], 67, 480, 200, 300);
 }
 
 /**
@@ -77,15 +76,15 @@ function presentData(jsonString) {
  * @param {int} left - distance from the very left of the slide to the left of the text box
  */
 function addText(title, font, fontSize, width, top, left) {
-  var t = slide.insertTextBox(title)
-  var tRange = t.getText();
-  var tStyle = tRange.getTextStyle();
-  tStyle.setFontFamily(font)
-  tStyle.setFontSize(fontSize);
-  tStyle.setForegroundColor("#80694c");
-  t.setWidth(width);
-  t.setTop(top);
-  t.setLeft(left);
+    var t = slide.insertTextBox(title)
+    var tRange = t.getText();
+    var tStyle = tRange.getTextStyle();
+    tStyle.setFontFamily(font)
+    tStyle.setFontSize(fontSize);
+    tStyle.setForegroundColor("#80694c");
+    t.setWidth(width);
+    t.setTop(top);
+    t.setLeft(left);
 }
 
 /**
@@ -95,14 +94,14 @@ function addText(title, font, fontSize, width, top, left) {
  * @param {int} pos - relative position of the side info text, i.e. 0, 1, 2, 3...
  */
 function addSideText(identifier, key, pos) {
-  var temp;
-  // If the key returns an array, choose first element of array
-  if(typeof(json[key]) == "object") {
-    temp = json[key][0];
-  } else {
-    temp = json[key];
-  }
-  addText(`${identifier}: ${temp}`, "Roboto", 14, 150, 80 + pos*50, 320);
+    var temp;
+    // If the key returns an array, choose first element of array
+    if(typeof(json[key]) == "object") {
+        temp = json[key][0];
+    } else {
+        temp = json[key];
+    }
+    addText(`${identifier}: ${temp}`, "Roboto", 14, 150, 80 + pos*50, 320);
 }
 
 /**
@@ -114,12 +113,12 @@ function addSideText(identifier, key, pos) {
  * @param {int} h - height of the image
  */
 function addImage(theUrl, top, left, w, h) {
-  // Adds an image from a url
-  // For book covers, left ≈ 450, top ≈ 50
-  const url = theUrl;
-  var image = slide.insertImage(url);
-  image.setTop(top);
-  image.setLeft(left);
-  image.setWidth(w);
-  image.setHeight(h);
+    // Adds an image from a url
+    // For book covers, left ≈ 450, top ≈ 50
+    const url = theUrl;
+    var image = slide.insertImage(url);
+    image.setTop(top);
+    image.setLeft(left);
+    image.setWidth(w);
+    image.setHeight(h);
 }
