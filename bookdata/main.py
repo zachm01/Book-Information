@@ -28,7 +28,7 @@ if __name__ == "__main__":
     num_books = int(input("How many books would you like? "))
 
     for i in range(num_books):
-        info = summary(input("Book? "), input("Export filepath? (Leave blank if none) "))
+        info = summary(input("Book? "), input("Export (1 or 0)? "))
         pp.pprint(info)
         total_data.append(info)
 
