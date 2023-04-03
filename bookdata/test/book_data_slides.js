@@ -14,9 +14,17 @@ var slideWidth = 720;
 var slideHeight = (9/16) * slideWidth;
 
 /**
- * Run the tasks
+ * Download the JSON data from GitHub
  */
 function myFunction() {
+    var response = UrlFetchApp.fetch("https://raw.githubusercontent.com/zachm01/Book-Information/main/bookdata/data/jsons/")
+    presentData(response);    
+}
+
+/**
+ * Run the tasks
+*/
+function main() {
     // Array of all the JSON strings for each book
     var jsonStrings = [
     // JSON strings go inside this array
