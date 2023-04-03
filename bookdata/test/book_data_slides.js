@@ -17,13 +17,13 @@ var slideHeight = (9/16) * slideWidth;
  * Run the tasks
  */
 function myFunction() {
-  // Array of all the JSON strings for each book
-  var jsonStrings = [
+    // Array of all the JSON strings for each book
+    var jsonStrings = [
     // JSON strings go inside this array
-  ];
-  for(var i = 0; i < jsonStrings.length; i++) {
-    presentData(jsonStrings[i]);
-  }
+    ];
+    for(var i = 0; i < jsonStrings.length; i++) {
+        presentData(jsonStrings[i]);
+    }
 }
 
 /**
