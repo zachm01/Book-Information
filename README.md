@@ -14,12 +14,13 @@ In the bookdata/bookdata/test directory is a Google Apps Script file (`book_data
 This script does not always work. It can be quite buggy and unreliable due to (I think) the nature of webscraping so proceed with caution and please do not use this in any high-stakes context.
 
 # Example
-<i>In terminal</i><br>
+<i>In terminal</i>
+<br>
 
 ```
 users-macbook-pro: python3 bookdata/main.py
 Book? in cold blood
-Export filepath? (Leave blank if none) icb.json
+Export (1 or 0)? 1
 
 { 'author': 'Truman Capote',
   'cover': 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1424931136i/168642.jpg',
