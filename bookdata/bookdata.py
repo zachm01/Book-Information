@@ -168,7 +168,7 @@ class BookData():
         except:
             print("Failed to download cover")
 
-    def summary(self, filepath=""):
+    def summary(self, export=False):
         """
         Fetch all the data about the book
         
@@ -185,12 +185,14 @@ class BookData():
             "page count": self.get_page_ct(),
             "cover": self.get_image()
         }
-        if filepath:
+
+        if export:
             try:
-                if ".json" not in filepath.lower():
-                    filepath += ".json"
+                filepath = "bookdata/data/jsons/" + information["title"][:20] + ".json"
+
                 with open(filepath, 'w', encoding='utf-8') as f:
                     json.dump(information, f)
             except OSError:
                 print("Failed to write to JSON file")
+
         return information
