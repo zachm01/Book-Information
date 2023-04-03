@@ -188,7 +188,7 @@ class BookData():
 
         if export:
             try:
-                filepath = "bookdata/data/jsons/" + information["title"][:20] + ".json"
+                filepath = "bookdata/data/jsons/" + information["title"][:20].lower().replace(' ', '') + ".json"
 
                 with open(filepath, 'w', encoding='utf-8') as f:
                     json.dump(information, f)
