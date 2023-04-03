@@ -12,13 +12,13 @@ from title_to_url import search
 import pyperclip
 from bookdata import BookData
 
-def summary(search_term: str, fpath="") -> dict:
+def summary(search_term: str, fpath=1) -> dict:
     """Get information about a book"""
     book = BookData(search(search_term))
 
-    # Check if the user has specified a file path
-    if fpath:
-        return book.summary(filepath=fpath)
+    # Check if the user wants to export the JSON
+    if bool(int(fpath)):
+        return book.summary(export=bool(fpath))
     return book.summary()
 
 if __name__ == "__main__":
