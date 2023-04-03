@@ -47,4 +47,4 @@ Export (1 or 0)? 1
   'title': 'In Cold Blood'}
 ```
 
-The output is saved in `icb.json` in the directory
+The output is saved in `bookdata/data/jsons/in_cold_blood.json`.
