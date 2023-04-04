@@ -67,7 +67,7 @@ class BookData():
             title = str(self.soup.find_all("h1", class_="Text Text__title1"))
             tag = "data-testid=\"bookTitle\">"
             return title[title.index(tag)+len(tag):title.index("</h1>")].replace("&amp;", "&")
-        except:
+        except ValueError:
             print("Could not fetch book title")
             return "title"
 
@@ -76,7 +76,7 @@ class BookData():
         try:
             rating = str(self.soup.find_all("div", class_="RatingStatistics__rating"))
             return float(rating[rating.index('">')+2:rating.index("</div>")])
-        except:
+        except ValueError:
             print("Could not fetch average book rating")
             return "rating"
 
@@ -85,7 +85,7 @@ class BookData():
         try:
             author = str(self.soup.find_all("h3", class_="Text Text__title3 Text__regular"))
             return author[author.index("By: ")+4:author.index("class")-2].replace("&amp;", "&")
-        except:
+        except ValueError:
             print("Could not fetch book author")
             return "author"
 
@@ -103,7 +103,7 @@ class BookData():
             if cbfh in summary:
                 return summary[summary.index(cbfh): + len(cbfh):]
             return summary.replace("'", "\'")
-        except:
+        except ValueError:
             print("Could not fetch book summary")
             return "synopsis"
 
@@ -116,7 +116,7 @@ class BookData():
                 label_tag = "Button__labelItem\">"
                 genres[i] = genre[genre.index(label_tag)+len(label_tag):]
             return [i.replace("</span></a></span>", "") for i in genres]
-        except:
+        except ValueError:
             print("Could not fetch book genres")
             return "genres"
 
@@ -125,7 +125,7 @@ class BookData():
         try:
             info = str(self.soup.find_all("div", class_="FeaturedDetails"))
             return info[info.index("First"):info.index("</p></div>")][-4:]
-        except:
+        except ValueError:
             print("Could not fetch book year")
             return "year"
 
@@ -135,7 +135,7 @@ class BookData():
             info = str(self.soup.find_all("div", class_="FeaturedDetails"))
             id_str = "pagesFormat\">"
             return int(info[info.index(id_str)+len(id_str):info.index("pages, ")-1])
-        except:
+        except ValueError:
             print("Could not fetch book page count")
             return "page count"
 
@@ -144,7 +144,7 @@ class BookData():
         try:
             url = str(self.soup.find_all("img", class_="ResponsiveImage"))
             return url[url.index("src=\"htt")+5:url.index(".jpg\"/>]")] + ".jpg"
-        except:
+        except ValueError:
             print("Could not fetch book cover")
             return "image url"
 
@@ -159,13 +159,11 @@ class BookData():
                     f.close()
             except OSError:
                 print("Failed to write file")
-            except:
-                print("Error occured when writing cover data file")
 
             img = Image.open('cover.jpg')
             img.show()
 
-        except:
+        except ValueError:
             print("Failed to download cover")
 
     def summary(self, export=False):
