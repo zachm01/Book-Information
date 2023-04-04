@@ -32,16 +32,13 @@ if __name__ == "__main__":
         pp.pprint(info)
         total_data.append(info)
 
-    copy = input("Copy to clipboard? ")
+    URL = "https://raw.githubusercontent.com/zachm01/Book-Information/main/bookdata/data/jsons/"
+    URL += f"{info['title'].lower().replace(' ', '_')[0:20]}.json"
+
+    print(f"Link to file (after commit): {URL}")
+
+    copy = input("Copy to link clipboard? ")
 
     if copy.lower() == "yes":
-        for i, data in enumerate(total_data):
-            total_data[i] = str(data).replace("'", "\'")
-
-            # An error can occur with apostrophes; janky fix˝
-            total_data[i] = total_data[i].replace("\"s", "\'s")
-
-        print(total_data)
-        pyperclip.copy(str(total_data)) # copy data
-
-        print("Copied to clipboard!")
+        pyperclip.copy(URL)
+``

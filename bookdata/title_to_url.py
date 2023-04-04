@@ -23,6 +23,7 @@ def search(title: str):
     data = requests.get(f"https://goodreads.com/search?utf8=✓&query={title}", timeout=15)
 
     soup = BeautifulSoup(data.content, "html.parser")
+
     # From GoodReads HTML
     search_results = soup.find_all("div", class_="u-anchorTarget")
 
@@ -34,7 +35,7 @@ def search(title: str):
     # From GoodReads HTML
     index = str(soup).index(str(soup.find_all("div", id=book_id[4:-1])[0]))
 
-    # this shit super jank
+    # this shit super jank but it works
     html = str(soup)[index:index+1000]
 
     # get the first result
