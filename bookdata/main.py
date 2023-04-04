@@ -41,4 +41,3 @@ if __name__ == "__main__":
 
     if copy.lower() == "yes":
         pyperclip.copy(URL)
-``
