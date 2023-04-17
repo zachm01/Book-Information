@@ -48,3 +48,5 @@ Export (1 or 0)? 1
 ```
 
 The output is saved in `bookdata/data/jsons/in_cold_blood.json`.
+
+A note about the file names: to prevent super long file names, I have restricted them to the first 21 characters of the title + `.json`, lowercased and with all spaces converte to underscores.
